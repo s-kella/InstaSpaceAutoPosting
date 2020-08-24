@@ -10,12 +10,12 @@ password = os.getenv('PASSWORD')
 bot = Bot()
 bot.login(username=name, password=password)
 
-path = os.getcwd()  # получить текующую папку
+path = os.getcwd()
 dir_name = 'images'
 path += '\\' + dir_name
-os.chdir(path)  # сменить папку
+os.chdir(path)
 
-files = os.listdir(path)  # список всех файлов
+files = os.listdir(path)
 for file in files:
     image = Image.open(file)
     image.thumbnail((1800, 1800))
