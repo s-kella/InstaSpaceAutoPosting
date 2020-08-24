@@ -3,7 +3,7 @@ import os
 
 
 def download(url, filename):
-    response = requests.get(url, verify=False)  # получить ответ сайта в переменную response
+    response = requests.get(url, verify=False)
     response.raise_for_status()
     with open(filename, 'wb') as file:
         file.write(response.content)
@@ -23,11 +23,11 @@ def fetch_spacex_last_launch():
         download(image_url, filename)
 
 
-path = os.getcwd()  # получить текующую папку
-files = os.listdir(path)  # список всех файлов
+path = os.getcwd()
+files = os.listdir(path)
 dir_name = 'images'
 if dir_name not in files:
-    os.mkdir(path)  # создать папку
+    os.mkdir(path)
 path += '\\' + dir_name
-os.chdir(path)  # сменить папку
+os.chdir(path)
 fetch_spacex_last_launch()
