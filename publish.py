@@ -16,12 +16,12 @@ def main():
     path = pathlib.Path.cwd() / dir_name
     os.chdir(path)
 
-    files = os.listdir(path)
-    for file in files:
-        image = Image.open(file)
+    file_names = os.listdir(path)
+    for file_name in file_names:
+        image = Image.open(file_name)
         image.thumbnail((1800, 1800))
-        image.save(file, format='JPEG')
-        bot.upload_photo(file)
+        image.save(file_name, format='JPEG')
+        bot.upload_photo(file_name)
 
 
 if __name__ == '__main__':
